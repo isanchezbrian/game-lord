@@ -37,10 +37,10 @@ app.get('/', (req, res) => {
 });
 
 // Library Route
-// app.use('/library', libraryCtrl);
+app.use('/library', libraryCtrl);
 
 // Admin Route
-// app.use('/admin', adminCtrl);
+app.use('/admin', adminCtrl);
 
 // ---------------- Server Listener ---------------------
 
