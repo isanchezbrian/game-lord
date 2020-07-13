@@ -1,42 +1,96 @@
 const express = require('express');
 const router = express.Router();
-
-// Database
 const db = require('../models');
+
 
 // Admin Index
 router.get('/', (req, res) => {
-    db.Game.find({}, (err, allGames) => {
-        if(err) return console.log(err);
-        console.log(allGames);
-        res.render('admin/index'), {
-            admin: allGames,
-        };
+  // Query For all Games
+  db.Game.find({}, (err, allGames) => {
+    if (err) return console.log(err);
+    // Log all games
+    console.log('All Games = ', allGames);
+    // Render the index template with all games
+    res.render('admin/index', {
+      games: allGames,
     });
+  });
 });
 
 // New Game
-router.post('/', (req, res) => {
-    db.Game.find({}, (err, games) => {
-        if(err) return console.log(err);
-        res.render('admin/new', {games}); //{games/admins}
-    })
+router.get('/new', (req, res) => {
+    res.render('admin/new');
+})
+
+// Admin Show
+router.get('/:id', (req, res) => {
+  // Query the database for the games by ID
+  db.Game.findById(req.params.id)
+    .populate({path: 'library'})
+    .exec((err, foundGame) => {
+      if(err) return console.log(err);
+      res.render('admin/show', {
+        game: foundGame,
+      });
+  })
 });
 
 // Create Game
 router.post('/', (req, res) => {
-    console.log(req.body);
+    console.log('Request body = ', req.body);
     db.Game.create(req.body, (err, newGame) => {
         if(err) return console.log(err);
-        console.log(newGame);
+        console.log('New Game = ', newGame);
+        res.redirect('/library');
+    })
+})
 
-    db.Console.findById(req.body.consoleId, (err, foundConsole) => {
-        foundConsole.games.push(newGame);
-        foundConsole.save(err, savedConsole) => {
-            console.log('savedConsole: ', savedConsole);
-            res.redirect('/libray');
-            })
-        })
+// Game Edit
+router.get('/:id/edit', (req, res) => {
+  db.Game.findById(req.params.id, (err, foundGame) => {
+    if(err) return console.log(err);
+
+    res.render('admin/edit', {
+      game: foundGame,
     });
+  });
 });
-// Admin Show
+
+
+// Game Update
+router.put('/:id', (req, res) => {
+  // Log data from client
+  console.log('Updated Game = ', req.body);
+
+  db.Author.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    {new: true},
+    (err, updatedGame) => {
+      if(err) return console.log(err);
+
+      res.redirect('/library');
+    }
+  );
+});
+
+
+// Game Destroy/Delete
+router.delete('/:id', (req, res) => {
+  console.log('Deleting Game ID = ', req.params.id);
+
+  db.Game.findByIdAndDelete(req.params.id, (err, deletedGame) => {
+    if(err) return console.log(err);
+    // Log the deleted game
+    console.log('The deleted game = ', deletedGame);
+    // db.Game.deleteMany({
+    //   _id: {
+    //     $in: deletedGames.console
+    //   }
+    // }, (err, data) => {
+      res.redirect('/library');
+    // })
+  });
+});
+
+module.exports = router;
