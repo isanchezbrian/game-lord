@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 4000;
 
 // ---------------- Controllers -------------------------
 
-const libraryCtrl = require('./controllers/libraryController');
+// const libraryCtrl = require('./controllers/libraryController');
 const adminCtrl = require('./controllers/adminController');
 
 // ---------------- Set View Engine ---------------------
@@ -40,7 +40,7 @@ app.get('/', (req, res) => {
 // app.use('/library', libraryCtrl);
 
 // Admin Route
-// app.use('/admin', adminCtrl);
+app.use('/admin', adminCtrl);
 
 // ---------------- Server Listener ---------------------
 
