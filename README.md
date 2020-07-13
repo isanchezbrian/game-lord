@@ -30,13 +30,13 @@ Any Game Lord user with an admin account can rent or list games to rent out to o
 <h1>Wireframes</h1>
 
 <h2>Homepage</h2>
-<img src="">
+<img src="./public/images/mainPage.png" alt="homepage">
 
 <h2>Admin</h2>
-<img src="">
+<img src="" alt="admin">
 
 <h2>Game Profile Card</h2>
-<img src="">
+<img src="./public/images/gameCard.png" alt="gameCard">
 
 
 
