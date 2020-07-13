@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Console = require('./Console');
 
 const GameSchema = new mongoose.Schema({
     title: {
@@ -10,7 +11,7 @@ const GameSchema = new mongoose.Schema({
         required: true,
     },
     console: [{
-        type: mongoose.Schema.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Console',
     }],
     genre: {
