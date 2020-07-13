@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/burger.css">
+    <script defer src="js/burger.js"></script>
+    <script defer src="js/slideshow.js"></script>
     <title>Game Lord</title>
 </head>
 <body>
@@ -10,21 +14,33 @@
     <form action="/library">
         <div class="container">
           <h1>Admin Page</h1>
+          <div id="topNav" class="navigation">
+              <span id="closebtn" onclick="navToggle()">
+                  <span class="line1"></span>
+                  <span class="line2"></span>
+                  <span class="line3"></span>
+                  
+              </span>
+              <div class="logo">
+                  <!-- <h1 id="title">Game Lord</h1> -->
+                  <img src="" />
+                  
+              </div>
+      
+              <ul class="menulist">
+                  <li><a class="menuitems" href="#">ABOUT</a></li>
+                  <li><a class="menuitems" href="/admin">ADMIN</a></li>
+                  <li><a class="menuitems" href="/library">LIBRARY</a></li>
+                  <li><a class="menuitems" href="#">CONTACT US</a></li>
+              </ul>
+          </div>
           <p>Please fill the game information you would like to rent out.</p>
           <hr>
       
           <label for="title"><b>Title</b></label>
           <input type="text" placeholder="Enter video game title" name="title" id="title" required>
 
-          <!-- enter drop down console selection menu here -->
-          <div class="dropdown">
-            <button onclick="selectConsole()" class="dropbtn">Dropdown</button>
-            <div id="consoleDropdown" class="dropdown-content">
-              <a href="#home">Xbox</a>
-              <a href="#about">Switch</a>
-              <a href="#contact">Playstation</a>
-            </div>
-          </div>
+    <!-- HAMBURGER MENU DROP DOWN -->
             
           <label for="psw"><b>Description</b></label>
           <input type="text" placeholder="Enter Description" name="description" id="description" required>
@@ -33,21 +49,21 @@
           <input type="number" placeholder="price" name="price" id="price" required> -->
 
           <label for="genre"><b>Genre</b></label>
-          <input type="text" placeholder="First person shooter, puzzle, RPG, etc..." name="Genre" id="Genre" required>
+          <input type="text" placeholder="Puzzle, RPG, etc..." name="Genre" id="Genre" required>
 
           <label for="launch"><b>Launch Date</b></label>
           <input type="text" placeholder="Game Launch Date" name="launch" id="launch" required>
 
 
           <hr>
-          <p>By creating your listing <a href="#">Terms & Privacy</a>.</p>
+          <!-- <p>By creating your listing <a href="#">Terms & Privacy</a>.</p> -->
       
           <button type="submit" class="listbtn">List My Game</button>
         </div>
         
-        <div class="container signin">
+        <!-- <div class="container signin">
           <p>Already have an account? <a href="#">Sign in</a>.</p>
-        </div>
+        </div> -->
       </form>
 
 </body>
