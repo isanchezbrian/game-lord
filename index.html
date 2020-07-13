@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/styles/main.css">
+    <link rel="stylesheet" href="./public/styles/burger.css">
+    <link rel="stylesheet" href="./public/styles/slideshow.css">
+    <link rel="stylesheet" href="./public/styles/library-btns.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/game-card.css">
+    <script defer src="./public/js/burger.js"></script>
+    <script defer src="./public/js/slideshow.js"></script>
+    <title>Game Lord</title>
+</head>
+
+<body>
+
+    <!-- HAMBURGER MENU DROP DOWN -->
+    <div id="topNav" class="navigation">
+        <span id="closebtn" onclick="navToggle()">
+            <span class="line1"></span>
+            <span class="line2"></span>
+            <span class="line3"></span>
+            
+        </span>
+        <div class="logo">
+            <!-- <h1 id="title">Game Lord</h1> -->
+            <img src="" />
+            
+        </div>
+
+        <ul class="menulist">
+            <li><a class="menuitems" href="#">ABOUT</a></li>
+            <li><a class="menuitems" href="#">ADMIN</a></li>
+            <li><a class="menuitems" href="#">LIBRARY</a></li>
+            <li><a class="menuitems" href="#">CONTACT US</a></li>
+        </ul>
+    </div>
+
+    <div id="main">
+    </div>
+
+
+    <!-- 3 PICTURE SLIDESHOW -->
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" style="width:100%">
+            <div class="text"></div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="https://images.unsplash.com/photo-1565869812436-a480bda13b6b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80"
+                style="width:100%">
+            <div class="text"></div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 4</div>
+            <img src="https://images.unsplash.com/photo-1577741314755-048d8525d31e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+                style="width:100%">
+            <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <div class="numbertext">4 / 4</div>
+            <img src="https://images.unsplash.com/flagged/photo-1580234748052-2c23d8b27a71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1347&q=80"
+                style="width:100%">
+            <div class="text"></div>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+
+    <!-- How it works -->
+    <div>
+        <h1>How it works</h1>
+        <div class ="how-it-works-pics">
+            <img src="./views/Screen Shot 2020-07-13 at 1.15.00 AM.png" alt="step1">
+            <img src="./views/Screen Shot 2020-07-13 at 1.15.00 AM.png" alt="step1">
+            <img src="./views/Screen Shot 2020-07-13 at 1.15.00 AM.png" alt="step1">
+        </div>
+    </div>
+
+
+
+
+    <!-- LIBRARY BUTTONS -->
+    <div class="library-btn-group">
+        <h1>Console Library</h1>
+        <div class="btn-group">
+            <button id="xbox-btn">Xbox</button>
+            <button id="switch-btn">Switch</button>
+            <button id="playstation-btn">Playstation</button>
+        </div>
+    </div>
+   
+    </div>
+
+   
+
+
+
+
+
+</body>
+
+</html>
