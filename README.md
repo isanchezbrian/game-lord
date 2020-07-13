@@ -11,13 +11,13 @@
 
 Any Game Lord user with an admin account can rent or list games to rent out to other admins.
 
-Non-admins can:
+<h3>Non-admins can:</h3>
 <ul>
     <li>View available games to rent</li>
     <li>Rent Games</li>
 </ul>
 
-Admins can:
+<h3>Admins can:</h3>
 <ul>
     <li>View available games to rent</li>
     <li>Rent Games</li>
@@ -30,7 +30,7 @@ Admins can:
 <h1>Wireframes</h1>
 
 <h2>Homepage</h2>
-<img src="./public/homePage.png">
+<img src="">
 
 <h2>Admin</h2>
 <img src="">
