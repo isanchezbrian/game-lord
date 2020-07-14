@@ -38,17 +38,18 @@
 
           <p>Please fill the game information you would like to rent out.</p>
           <hr>
+
+        </div>
         <form action="/admin" method="POST">
             <div>
-                <label for="game">Game</label>
-                    <select name="gameId" id="game">
-                        <% games.forEach(game => { %>
-                            <option value="<%= game._id %>"><%= game.title %></option>
-                        <% }); %>
-                    </select>
+            <label for="game">Games</label>
+                <select name="gameId" id="game">
+                <% games.forEach(game => { %>
+                    <option value="<%= game._id %>"><%= game.title %></option>
+                <% }) %>
+                </select>
             </div>
-        </div>
-
+        </form>
       </form>
     </main>
 </body>
