@@ -41,7 +41,7 @@ router.post('/', (req, res) => {
     db.Game.create(req.body, (err, newGame) => {
         if(err) return console.log(err);
         console.log('New Game = ', newGame);
-        res.redirect('/library');
+        res.redirect('/admin');
     })
 })
 
@@ -69,7 +69,7 @@ router.put('/:id', (req, res) => {
     (err, updatedGame) => {
       if(err) return console.log(err);
 
-      res.redirect('/library');
+      res.redirect('/admin');
     }
   );
 });
@@ -83,13 +83,13 @@ router.delete('/:id', (req, res) => {
     if(err) return console.log(err);
     // Log the deleted game
     console.log('The deleted game = ', deletedGame);
-    // db.Game.deleteMany({
-    //   _id: {
-    //     $in: deletedGames
-    //   }
-    // }, (err, data) => {
-      res.redirect('/library');
-    // })
+    db.Game.deleteMany({
+      _id: {
+        $in: deletedGames.admin
+      }
+    }, (err, data) => {
+      res.redirect('/admin');
+    })
   });
 });
 

@@ -43,7 +43,7 @@
           <input type="text" placeholder="Enter video game title" name="title" id="name" required>
 
           <hr>
-      
+            <%= games.title %>
           <% games.forEach(game => { %>
             <h4>
                 <a href="/admin/<%= game._id %>">
