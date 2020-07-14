@@ -10,7 +10,7 @@
     <title>Game Lord</title>
 </head>
 <body>
-    
+    <main>
     <!-- HAMBURGER MENU DROP DOWN -->
     <form action="/library">
         <div class="container">
@@ -39,41 +39,21 @@
           <p>Please fill the game information you would like to rent out.</p>
           <hr>
       
-          <label for="title"><b>Title</b></label>
-          <input type="text" placeholder="Enter video game title" name="title" id="title" required>
-
-            
-          <label for="psw"><b>Description</b></label>
-          <input type="text" placeholder="Enter Description" name="description" id="description" required>
-      
-          <!-- <label for="price"><b>Price Per Week</b></label>
-          <input type="number" placeholder="price" name="price" id="price" required> -->
-
-          <label for="genre"><b>Genre</b></label>
-          <input type="text" placeholder="Puzzle, RPG, etc..." name="Genre" id="Genre" required>
-
-          <label for="launch"><b>Launch Date</b></label>
-          <input type="text" placeholder="Game Launch Date" name="launch" id="launch" required>
-
+          <label for="title"><b>Title:</b></label>
+          <input type="text" placeholder="Enter video game title" name="title" id="name" required>
 
           <hr>
-          <!-- <p>By creating your listing <a href="#">Terms & Privacy</a>.</p> -->
       
-          <button type="submit" class="listbtn">List My Game</button>
+          <% games.forEach(game => { %>
+            <h4>
+                <a href="/admin/<%= game._id %>">
+                    <%= game.title %>
+                </a>
+            </h4>
+            <% }) %>
+          <button type="submit" class="listbtn">Add Game</button>
         </div>
-        
-        <!-- <div class="container signin">
-          <p>Already have an account? <a href="#">Sign in</a>.</p>
-        </div> -->
       </form>
-
-      <% games.forEach(game => { %>
-        <h4>
-          <a href="/admin/<%= game._id %>">
-            <%= game.title %>
-          </a>
-        </h4>
-      <% }) %>
-
+    </main>
 </body>
 </html>
