@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,57 +10,65 @@
     <script defer src="js/admin.js"></script>
     <title>Game Lord</title>
 </head>
+
 <body>
     <main>
-    <!-- HAMBURGER MENU DROP DOWN -->
-    <form action="/library">
-        <div id="topNav" class="navigation">
-            <span id="closebtn" onclick="navToggle()">
-                <span class="line1"></span>
-                <span class="line2"></span>
-                <span class="line3"></span>
+        <!-- HAMBURGER MENU DROP DOWN -->
+        <form action="/library">
+
+            <div id="topNav" class="navigation">
+                <span id="closebtn" onclick="navToggle()">
+                    <span class="line1"></span>
+                    <span class="line2"></span>
+                    <span class="line3"></span>
     
-            </span>
-            <div class="logo">
-                <!-- <h1 id="title">Game Lord</h1> -->
-                <img src="" />
+                </span>
+                <div class="logo">
+                    <!-- <h1 id="title">Game Lord</h1> -->
+                    <img src="" />
     
+                </div>
+    
+                <ul class="menulist">
+                    <li><a class="menuitems" href="/">HOME</a></li>
+                    <li><a class="menuitems" href="/admin">ADMIN</a></li>
+                    <li><a class="menuitems" href="/library">LIBRARY</a></li>
+                    <li><a class="menuitems" href="#">CONTACT US</a></li>
+                </ul>
             </div>
     
-            <ul class="menulist">
-                <li><a class="menuitems" href="/">HOME</a></li>
-                <li><a class="menuitems" href="/admin">ADMIN</a></li>
-                <li><a class="menuitems" href="/library">LIBRARY</a></li>
-                <li><a class="menuitems" href="#">CONTACT US</a></li>
-            </ul>
-        </div>
+            <div id="main">
+            </div>
     
-        <div id="main">
-        </div>
+            <div class="websiteName">
     
-        <div class="websiteName">
+            </div>
             
-        </div>
-        <h1>Admin Page</h1>
 
-          <p>Please fill the game information you would like to rent out.</p>
-          <hr>
-      
-          <label for="title"><b>Title:</b></label>
-          <input type="text" placeholder="Enter video game title" name="title" id="name" required>
+                    <div class="websiteName">
+                        <h1>
+                            <a href="/">Game Lord</a>
+                        </h1>
+                    </div>
+                    <p>Please fill the game information you would like to rent out.</p>
+                    <hr>
 
-          <hr>
-            <%= games.title %>
-          <% games.forEach(game => { %>
-            <h4>
-                <a href="/admin/<%= game._id %>">
-                    <%= game.title %>
-                </a>
-            </h4>
-            <% }) %>
-          <button type="submit" class="listbtn">Add Game</button>
-        </div>
-      </form>
+                    <label for="title"><b>Title:</b></label>
+                    <input type="text" placeholder="Enter video game title" name="title" id="name" required>
+
+                    <hr>
+                    <%= games.title %>
+                    <% games.forEach(game => { %>
+                    <h4>
+                        <a href="/admin/<%= game._id %>">
+                            <%= game.title %>
+                        </a>
+                    </h4>
+                    <% }) %>
+                    <button type="submit" class="listbtn">Add Game</button>
+                </div>
+        </form>
     </main>
 </body>
+
 </html>
