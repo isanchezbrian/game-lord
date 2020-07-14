@@ -37,7 +37,11 @@ app.get('/', (req, res) => {
 });
 
 // Library Route
-app.use('/library', libraryCtrl);
+// app.use('/library', libraryCtrl);
+//     res.send()
+app.use('/library', (req, res) => {
+    res.send('<h1>Welcome to the library.</h1>')
+})
 
 // Admin Route
 app.use('/admin', adminCtrl);
