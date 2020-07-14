@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <script defer src="js/admin.js"></script>
     <title>Game Lord</title>
 </head>
+
 <body>
     <main>
     <!-- HAMBURGER MENU DROP DOWN -->
@@ -35,24 +37,25 @@
               </ul>
         </div>
 
-          <p>Please fill the game information you would like to rent out.</p>
-          <hr>
-      
-          <label for="title"><b>Title</b></label>
-          <input type="text" placeholder="Enter video game title" name="title" id="name" required>
-
-          <hr>
-
-          <section>
-              <button type="submit">Add Game</button>
-            <ul>
-              <% games.library.forEach((game, i) => { %>
-                <li><%= i %>. <a href="/library/<%= game._id %>"><%= game.title %></a></li>
-              <% }); %>
-            </ul>
-          </section>
-        </div>
-
+          <p>Please fill the Game information you would like to add to rent.</p>
+    <hr>
+        <form action="/admin" method="POST">
+            <input type="text" name="title" placeholder="Enter Title">
+            <input type="text" name="genre" placeholder="Enter Genre">
+            <input type="text" name="date" placeholder="Enter Date">
+            <input type="text" name="description" placeholder="Enter Description">
+            <input type="text" name="console" placeholder="Console">
+    <hr>
+            <input type="submit" value="Add Game">
+        </form>
+        <section>
+        <ul>
+          <% games.forEach((game, i) => { %>
+            <li><%= i %><a href="/library/<%= game._id %>"><%= game.title %></a></li>
+          <% }); %>
+        </ul>
+        </section>
     </main>
 </body>
 </html>
+
