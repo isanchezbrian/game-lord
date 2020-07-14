@@ -13,18 +13,68 @@ router.get('/', (req, res) => {
     });
 });
 
+// New Game
+router.get('/new', (req, res) => {
+    db.Game.find({}, (err, games) => {
+        if(err) return console.log(err);
+        res.render('/library/new', {games});
+    })
+});
+
+// Create Game
+router.post('/', (req, res) => {
+    console.log(req.body);
+    db,Game.create(req.body, (err, newGame) => {
+        if(err) return console.log(err);
+        console.log(newGame);
+    db.Game.findById(req.body.gameId, (err, foundGame) => {
+        foundGame.library.push(newGame);
+        foundGame.save((err, savedGame) => {
+            console.log('savedGame: ', savedGame);
+            res.redirect('/library');
+            })
+        })
+    });
+});
+
 // Library Show
 router.get('/:id', (req, res) => {
-    db.Game.findOne({'library': req.params.id})
+    db.Game.findOne({'games': req.params.id})
     .populate({
         path: 'library',
         match: {_id: req.params.id}
     })
     .exec((err, foundGame) => {
-        console.log('admin: ', foundGame);
+        console.log('games: ', foundGame);
         res.render('library/show', {
             game: foundGame.admin[0],
         });
+    })
+});
+
+// Game Update
+router.put('/:id/', (req, res) => {
+    db.Game.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        {new: true},
+        (err, UpdatedGame) => {
+            if(err) return console.log(err);
+            db.Game.findOne({'games': req.params.id}, (err, foundGame) => {
+                if(foundGame._id.toString() !== req.body.gameId){
+                    foundGame.library.remove(req.params.id);
+                    foundGame.save((err, savedGame) => {
+                        db.Game.findById(req.body.gameId, (err, newGame) => {
+                            newGame.library.push(UpdatedGame);
+                            newGame.save((err, savedGame) => {
+                            res.redirect(`/library/${req.params.id}`);
+                        })
+                    })
+                })
+            } else {
+                res.redirect(`/library/${req.params.id}`);
+            }
+        })
     });
 });
 

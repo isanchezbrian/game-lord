@@ -85,7 +85,7 @@ router.delete('/:id', (req, res) => {
     console.log('The deleted game = ', deletedGame);
     // db.Game.deleteMany({
     //   _id: {
-    //     $in: deletedGames.console
+    //     $in: deletedGames
     //   }
     // }, (err, data) => {
       res.redirect('/library');
