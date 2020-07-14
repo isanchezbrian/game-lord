@@ -35,25 +35,6 @@
             </ul>
         </div>
 
-        <h4><%= game.title %></h4>
-
-        <form style="display: inline;" action="/library/<%= game._id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete Game</button>
-        </form>
-
-
-        <a href="/library/<%= game._id %>/edit">
-        <button>Edit Game</button>
-        </a>
-        
-        <section>
-        <ul>
-            <% games.forEach((game, i) => { %>
-                <li><%= i %>. <a href="/library/<%= game._id %>"><%= game.title %></a></li>
-            <% }) %>
-        </ul>
-        </section>
-
     </main>
 
 </body>

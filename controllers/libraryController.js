@@ -37,21 +37,21 @@ router.post('/', (req, res) => {
     });
 });
 
-// // Library Show
-// router.get('/:id', (req, res) => {
-//     db.Game.findOne({'games': req.params.id})
-//     .populate({
-//         path: 'library',
-//         match: {_id: req.params.id}
-//     })
-//     .exec((err, foundGame) => {
-//         console.log('games: ', foundGame);
-//         res.render('library/show', {
-//             game: foundGame.library[0],
-//             game: foundGame,
-//         });
-//     })
-// });
+// Library Show
+router.get('/:id', (req, res) => {
+    db.Game.findOne({'games': req.params.id})
+    .populate({
+        path: 'library',
+        match: {_id: req.params.id}
+    })
+    .exec((err, foundGame) => {
+        console.log('games: ', foundGame);
+        res.render('library/show', {
+            game: foundGame.library[0],
+            game: foundGame,
+        });
+    })
+});
 
 // Edit Game 
 router.get('/:id/edit', (req, res) => {

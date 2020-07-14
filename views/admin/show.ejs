@@ -37,24 +37,19 @@
               </ul>
         </div>
 
-          <p>Please fill the Game information you would like to add to rent.</p>
+          <p>Please fill out the Game information you would like to edit.</p>
     <hr>
-        <form action="/admin" method="POST">
-            <input type="text" name="title" placeholder="Enter Title">
-            <input type="text" name="genre" placeholder="Enter Genre">
-            <input type="text" name="date" placeholder="Enter Date">
-            <input type="text" name="description" placeholder="Enter Description">
-            <input type="text" name="console" placeholder="Console">
-    <hr>
-            <input type="submit" value="Add Game">
-        </form>
-        <section>
-        <ul>
-          <% games.forEach((game, i) => { %>
-            <li><%= i %><a href="/library/<%= game._id %>"><%= game.title %></a></li>
-          <% }); %>
-        </ul>
-        </section>
+    
+    <label for="title">Title: </label>
+    <input type="text" id="gameId" name="title" value="<%= game.title %>" />
+    
+          <form action="/admin/<%= game._id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete Game</button>
+          </form>
+          
+          <a href="/admin/<%= game._id %>/edit">
+            <button>Edit Game</button>
+          </a>
     </main>
 </body>
 </html>
