@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/burger.css">
+    <script defer src="js/burger.js"></script>
+    <script defer src="js/admin.js"></script>
+    <title>Game Lord</title>
+</head>
+<body>
+    <main>
+    <!-- HAMBURGER MENU DROP DOWN -->
+    <form action="/library">
+        <div class="container">
+          <h1>Admin Page</h1>
+          <div id="topNav" class="navigation">
+              <span id="closebtn" onclick="navToggle()">
+                  <span class="line1"></span>
+                  <span class="line2"></span>
+                  <span class="line3"></span>
+                  
+              </span>
+              <div class="logo">
+                  <!-- <h1 id="title">Game Lord</h1> -->
+                  <img src="" />
+                  
+              </div>
+      
+              <ul class="menulist">
+                  <li><a class="menuitems" href="#">ABOUT</a></li>
+                  <li><a class="menuitems" href="/admin">ADMIN</a></li>
+                  <li><a class="menuitems" href="/library">LIBRARY</a></li>
+                  <li><a class="menuitems" href="#">CONTACT US</a></li>
+              </ul>
+        </div>
+
+          <p>Please fill the game information you would like to rent out.</p>
+          <hr>
+        <form action="/admin" method="POST">
+            <div>
+                <label for="game">Game</label>
+                    <select name="gameId" id="game">
+                        <% games.forEach(game => { %>
+                            <option value="<%= game._id %>"><%= game.title %></option>
+                        <% }); %>
+                    </select>
+            </div>
+        </div>
+
+      </form>
+    </main>
+</body>
+</html>
