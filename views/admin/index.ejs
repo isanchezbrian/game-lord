@@ -44,6 +44,7 @@
 
           <hr>
         <button type="submit">Add Game</button>
+        
         <% if (games.length) { %>
             games.forEach((game) => {
                 <a href="/admin/<%= game._id %>">
