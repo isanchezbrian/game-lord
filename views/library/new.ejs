@@ -35,16 +35,7 @@
             </ul>
         </div>
 
-        <form action="/library" method="POST">
-            <div>
-            <label for="game">Games</label>
-                <select name="gameId" id="game">
-                <% games.forEach(game => { %>
-                    <option value="<%= game._id %>"><%= game.title %></option>
-                <% }) %>
-                </select>
-            </div>
-        </form>
     </main>
+    
 </body>
 </html>

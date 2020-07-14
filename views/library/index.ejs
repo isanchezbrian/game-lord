@@ -43,17 +43,7 @@
 
         </div>
 
-        <% if (games.length) { %>
-        <% games.forEach((game) => { %>
-        <a href="/library/<%= game._id %>">
-            <h4><%= game.title %></h4>
-        </a>
-        <% }) %>
-        <% } else { %>
-        <h4>No Games Found</h4>
-        <% } %>
     </main>
 
 </body>
-
 </html>
