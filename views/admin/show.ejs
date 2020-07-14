@@ -44,9 +44,14 @@
 
           <hr>
 
-          <% game.forEach((game, i) = { %>
-            <li><%= i %>. <a href="/"></a></li>
-          <button type="submit" class="listbtn">Add Game</button>
+          <section>
+            <button type="submit">Add Game</button>
+            <ul>
+              <% game.library.forEach((game, i) => { %>
+                <li><%= i %>. <a href="/library/<%= game._id %>"><%= game.title %></a></li>
+              <% }); %>
+            </ul>
+          </section>
         </div>
 
       </form>
