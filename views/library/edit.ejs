@@ -11,6 +11,7 @@
     <title>Game Lord</title>
 </head>
 <body>
+    <main>
     <!-- HAMBURGER MENU DROP DOWN -->
     <h1>Games Library</h1>
     <div id="topNav" class="navigation">
@@ -26,20 +27,20 @@
                 
         </div>
     
-        <ul class="menulist">
-            <li><a class="menuitems" href="#">ABOUT</a></li>
-            <li><a class="menuitems" href="/admin">ADMIN</a></li>
-            <li><a class="menuitems" href="/library">LIBRARY</a></li>
-            <li><a class="menuitems" href="#">CONTACT US</a></li>
-        </ul>
-    </div>
+            <ul class="menulist">
+                <li><a class="menuitems" href="#">ABOUT</a></li>
+                <li><a class="menuitems" href="/admin">ADMIN</a></li>
+                <li><a class="menuitems" href="/library">LIBRARY</a></li>
+                <li><a class="menuitems" href="#">CONTACT US</a></li>
+            </ul>
+        </div>
 
-      <form action="/library/<%= game._id %>?_method=PUT" method="POST">
-          <label for="name">Name</label>
-          <input type="text" id="game" name="name" value="<%= game.title %>" />
-      
-          <button type="submit">Edit Game</button>
-        </form>
+        <form action="/library/<%= game._id %>?_method=PUT" method="POST">
+            <label for="name">Name</label>
+            <input type="text" id="game" name="name" value="<%= game.title %>" />
+        
+            <button type="submit">Edit Game</button>
+            </form>
       </main>
 
 </body>
