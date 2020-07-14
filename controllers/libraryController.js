@@ -47,9 +47,28 @@ router.get('/:id', (req, res) => {
     .exec((err, foundGame) => {
         console.log('games: ', foundGame);
         res.render('library/show', {
-            game: foundGame.admin[0],
+            game: foundGame.library[0],
+            game: foundGame,
         });
     })
+});
+
+// Edit Game 
+router.get('/:id/edit', (req, res) => {
+    db.Game.find({}, (err, allGames) => {
+        db.Game.findOne({'games': req.params.id})
+        .populate({
+            path: 'library',
+            match: {_id: req.params.id}
+        })
+        .exec((err, foundExistingGame) => {
+            res.render('./library/edit', {
+                game: foundExistingGame.library[0],
+                games: allGames,
+                games: foundExistingGame
+            })
+        })
+    });
 });
 
 // Game Update
@@ -74,6 +93,21 @@ router.put('/:id/', (req, res) => {
             } else {
                 res.redirect(`/library/${req.params.id}`);
             }
+        })
+    });
+});
+
+// Delete Game
+router.delete('/:id', (req, res) => {
+    db.Game.findByIdAndDelete(req.params.id, (err, deletedGame) => {
+        if(err) return console.log(err);
+        console.log(deletedGame);
+        db.Game.findOne({'games': req.params.id}, (err, foundGame) => {
+            foundGame.library.remove(req.params.id);
+            foundGame.save((err, updatedGame) => {
+                console.log(updatedGame);
+                res.redirect('/library');
+            })
         })
     });
 });
