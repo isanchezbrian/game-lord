@@ -10,10 +10,13 @@ const GameSchema = new mongoose.Schema({
         type: Date,
         required: true,
     },
-    console: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Console',
-    }],
+    console: {
+        type: String,
+    },
+    // console: [{
+        // type: mongoose.Schema.Types.ObjectId,
+        // ref: 'Console',
+    // }],
     genre: {
         type: String,
         required: true,

@@ -12,7 +12,6 @@
 <body>
     <main>
     <!-- HAMBURGER MENU DROP DOWN -->
-    <form action="/library">
         <div class="container">
           <h1>Admin Page</h1>
           <div id="topNav" class="navigation">
@@ -44,12 +43,16 @@
 
           <hr>
 
-          <% game.forEach((game, i) = { %>
-            <li><%= i %>. <a href="/"></a></li>
-          <button type="submit" class="listbtn">Add Game</button>
+          <section>
+              <button type="submit">Add Game</button>
+            <ul>
+              <% games.library.forEach((game, i) => { %>
+                <li><%= i %>. <a href="/library/<%= game._id %>"><%= game.title %></a></li>
+              <% }); %>
+            </ul>
+          </section>
         </div>
 
-      </form>
     </main>
 </body>
 </html>

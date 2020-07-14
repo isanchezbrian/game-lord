@@ -13,61 +13,50 @@
 
 <body>
     <main>
-        <!-- HAMBURGER MENU DROP DOWN -->
-        <form action="/library">
+    <!-- HAMBURGER MENU DROP DOWN -->
+        <div class="container">
+          <h1>Admin Page</h1>
+          <div id="topNav" class="navigation">
+              <span id="closebtn" onclick="navToggle()">
+                  <span class="line1"></span>
+                  <span class="line2"></span>
+                  <span class="line3"></span>
+                  
+              </span>
+              <div class="logo">
+                  <!-- <h1 id="title">Game Lord</h1> -->
+                  <img src="" />
+                  
+              </div>
+      
+              <ul class="menulist">
+                  <li><a class="menuitems" href="#">ABOUT</a></li>
+                  <li><a class="menuitems" href="/admin">ADMIN</a></li>
+                  <li><a class="menuitems" href="/library">LIBRARY</a></li>
+                  <li><a class="menuitems" href="#">CONTACT US</a></li>
+              </ul>
+        </div>
 
-            <div id="topNav" class="navigation">
-                <span id="closebtn" onclick="navToggle()">
-                    <span class="line1"></span>
-                    <span class="line2"></span>
-                    <span class="line3"></span>
-    
-                </span>
-                <div class="logo">
-                    <!-- <h1 id="title">Game Lord</h1> -->
-                    <img src="" />
-    
-                </div>
-    
-                <ul class="menulist">
-                    <li><a class="menuitems" href="/">HOME</a></li>
-                    <li><a class="menuitems" href="/admin">ADMIN</a></li>
-                    <li><a class="menuitems" href="/library">LIBRARY</a></li>
-                    <li><a class="menuitems" href="#">CONTACT US</a></li>
-                </ul>
-            </div>
-    
-            <div id="main">
-            </div>
-    
-            <div class="websiteName">
-    
-            </div>
-            
-
-                    <div class="websiteName">
-                        <h1>
-                            <a href="/">Game Lord</a>
-                        </h1>
-                    </div>
-                    <p>Please fill the game information you would like to rent out.</p>
-                    <hr>
-
-                    <label for="title"><b>Title:</b></label>
-                    <input type="text" placeholder="Enter video game title" name="title" id="name" required>
-
-                    <hr>
-                    <%= games.title %>
-                    <% games.forEach(game => { %>
-                    <h4>
-                        <a href="/admin/<%= game._id %>">
-                            <%= game.title %>
-                        </a>
-                    </h4>
-                    <% }) %>
-                    <button type="submit" class="listbtn">Add Game</button>
-                </div>
+          <p>Please fill the game information you would like to rent out.</p>
+    <hr>
+        <form action="/admin" method="POST">
+            <input type="text" name="title" placeholder="Enter Title">
+            <input type="text" name="genre" placeholder="Enter Genre">
+            <input type="text" name="date" placeholder="Enter Date">
+            <input type="text" name="description" placeholder="Enter Description">
+            <input type="text" name="console" placeholder="Console">
+    <hr>
+            <input type="submit" value="Add Game">
         </form>
+        <% if (games.length) { %>
+            <% games.forEach((game) => { %>
+                <a href="/admin/<%= game._id %>">
+                    <h4><%= game.title %></h4>
+                </a>
+            <% }) %>
+        <% } else { %>
+            <h4>No Games Found</h4>
+        <% } %>
     </main>
 </body>
 
