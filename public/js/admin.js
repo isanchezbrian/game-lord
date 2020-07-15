@@ -17,3 +17,12 @@ function selectConsole() {
       }
     }
   }
+
+// Dropdown on Console Name and Value
+function Add() {
+  let addConsole = document.getElementById('addConsole');
+  let option = document.createElement('OPTION');
+  option.innerHTML = document.getElementById('addText').value;
+  option.value = document.getElementById('addValue').value;
+  addConsole.options.add(option);
+}
