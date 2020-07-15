@@ -15,6 +15,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
   <main>
     <!-- HAMBURGER MENU DROP DOWN -->
     <div class="container">
@@ -30,7 +31,35 @@
             <!-- <h1 id="title">Game Lord</h1> -->
             <img src="" />
 
+=======
+    <main>
+        <!-- HAMBURGER MENU DROP DOWN -->
+        <div id="topNav" class="navigation">
+            <span id="closebtn" onclick="navToggle()">
+                <span class="line1"></span>
+                <span class="line2"></span>
+                <span class="line3"></span>     
+            </span>
+            <div class="logo">
+                <!-- <h1 id="title">Game Lord</h1> -->
+                <img src="" />
+                  
+            </div>
+      
+            <ul class="menulist">
+                <li><a class="menuitems" href="/">HOME</a></li>
+                <li><a class="menuitems" href="/admin">ADMIN</a></li>
+                <li><a class="menuitems" href="/library">LIBRARY</a></li>
+                <li><a class="menuitems" href="#">CONTACT US</a></li>
+            </ul>
         </div>
+
+
+        <div id="main">
+>>>>>>> submaster
+        </div>
+    
+        <div class="websiteName">
 
         <ul class="menulist">
             <li><a class="menuitems" href="/">HOME</a></li>
@@ -47,6 +76,7 @@
 
     <p>Please fill out the Game information you would like to edit.</p>
     <hr>
+<<<<<<< HEAD
 
     <label for="title">Title: </label>
     <input type="text" id="gameId" name="title" value="<%= game.title %>" />
@@ -59,6 +89,27 @@
       <button>Edit Game</button>
     </a>
   </main>
+=======
+    
+
+    Title: <%= game.title %> <br>
+    Genre: <%= game.genre %>" <br>
+    Date: <%= game.date %>" <br>
+    Description: <%= game.description %>"<br>
+    <!-- Console: < console.name %>-->
+    <!-- <select name="console" id="consoleId"> -->
+    <!-- <option value="< console.name %>">< console.name %></option> -->
+    </select>
+    
+          <form action="/admin/<%= game._id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete Game</button>
+          </form>
+          
+          <a href="/admin/<%= game._id %>/edit">
+            <button>Edit Game</button>
+          </a>
+    </main>
+>>>>>>> submaster
 </body>
 
 </html>
