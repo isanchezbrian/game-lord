@@ -19,7 +19,6 @@
                 <span class="line1"></span>
                 <span class="line2"></span>
                 <span class="line3"></span>
-
             </span>
             <div class="logo">
                 <!-- <h1 id="title">Game Lord</h1> -->
@@ -35,7 +34,7 @@
             </ul>
         </div>
         
-        
+
         <div id="main">
         </div>
     
@@ -44,11 +43,14 @@
           <p>Please fill the Game information you would like to add to rent.</p>
     <hr>
         <form action="/admin" method="POST">
-            <input type="text" name="title" placeholder="Enter Title">
-            <input type="text" name="genre" placeholder="Enter Genre">
-            <input type="text" name="date" placeholder="Enter Date">
-            <input type="text" name="description" placeholder="Enter Description">
-            <input type="text" name="console" placeholder="Console">
+            Title: <input type="text" name="title" placeholder="Enter Title" required>
+            Genre: <input type="text" name="genre" placeholder="Enter Genre" required>
+            Date: <input type="text" name="date" placeholder="Enter Date" required>
+            Description: <input type="text" name="description" placeholder="Enter Description" required>
+            <!-- Console: <input type="text" name="console" placeholder="Console"> -->
+            <!-- <select name="console" id="consoleId"> -->
+            <!-- <option value="< console.name %>">< console.name %></option> -->
+            </select>
             <hr>
             <input type="submit" value="Add Game">
         </form>
@@ -61,6 +63,7 @@
         <% } else { %>
         <h4>No Games Found</h4>
         <% } %>
+
     </main>
 </body>
 </html>
