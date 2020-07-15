@@ -62,7 +62,7 @@ router.put('/:id', (req, res) => {
   // Log data from client
   console.log('Updated Game = ', req.body);
 
-  db.Author.findByIdAndUpdate(
+  db.Game.findByIdAndUpdate(
     req.params.id,
     req.body,
     {new: true},
