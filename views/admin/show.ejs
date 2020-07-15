@@ -18,7 +18,7 @@
   <main>
     <!-- START: HAMBURGER MENU DROP DOWN -->
     <div class="container">
-      <h1>Admin Page</h1>
+      <h1>Game Info</h1>
       <div id="topNav" class="navigation">
         <span id="closebtn" onclick="navToggle()">
           <span class="line1"></span>
@@ -48,13 +48,18 @@
       </div>
       <!-- END: HAMBURGER MENU DROP DOWN -->
 
-      <p>Please fill out the Game information you would like to edit.</p>
+      <h4>Game Information:</h4>
       <hr>
 
-      <label for="title">Title: </label>
-      <input type="text" id="gameId" name="title" value="<%= game.title %>" />
-
-      <form action="/admin/<%= game._id %>?_method=DELETE" method="POST">
+      Title: <%= game.title %> <br>
+      Genre: <%= game.genre %> <br>
+      Date: <%= game.date %> <br>
+      Description: <%= game.description %>"
+      <!-- Console: <input type="text" name="console" placeholder="Console"> -->
+      <!-- <select name="console" id="consoleId"> -->
+      <!-- <option value="< console.name %>">< console.name %></option> -->
+      <!-- </select> -->
+      <form style="display: block;" action="/admin/<%= game._id %>?_method=DELETE" method="POST">
         <button type="submit">Delete Game</button>
       </form>
 
