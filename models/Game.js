@@ -13,10 +13,6 @@ const GameSchema = new mongoose.Schema({
     // console: {
     //     type: String,
     // },
-    console: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Console',
-    }],
     genre: {
         type: String,
         required: true,
@@ -24,7 +20,11 @@ const GameSchema = new mongoose.Schema({
     description: {
         type: String,
     },
-}, {timestamps: true});
+    console: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Console',
+    }],
+}, { timestamps: true });
 
 // Create and Export Game Model
 module.exports = mongoose.model('Game', GameSchema);
