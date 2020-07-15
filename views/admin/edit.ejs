@@ -41,8 +41,14 @@
         <div class="websiteName">
 
         <form action="/admin/<%= game._id %>?_method=PUT" method="POST">
-            <label for="title">Title: </label>
-            <input type="text" name="title" id="gameId" value="<%= game.title %>" />
+            Title: <input type="text" name="title" id="gameId" value="<%= game.title %>" placeholder="Enter Title" >
+            Genre: <input type="text" name="genre" id="gameId" value="<%= game.genre %>" placeholder="Enter Genre" >
+            Date: <input type="text" name="date" id="gameId" value="<%= game.date %>"placeholder="Enter Date" >
+            Description: <input type="text" name="description" id="gameId" value="<%= game.description %>"placeholder="Enter Description" >
+            <!-- Console: <input type="text" name="console" value="< console.name %>"placeholder="Console"> -->
+            <!-- <select name="console" id="consoleId"> -->
+            <!-- <option value="< console.name %>">< console.name %></option> -->
+            </select>
             
             <button type="submit">Edit Game</button>
         </form>
