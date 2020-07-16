@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/burger.css">
+    <link rel="stylesheet" href="styles/gameCard.css">
     <script defer src="js/burger.js"></script>
     <script defer src="js/admin.js"></script>
     <title>Game Lord</title>
@@ -47,21 +48,17 @@
             Title: <input type="text" name="title" placeholder="Enter Title" required>
             Genre: <input type="text" name="genre" placeholder="Enter Genre" required>
             Date: <input type="text" name="date" placeholder="Enter Date" required>
-            Description: <input type="text" name="description" placeholder="Enter Description" required>
-            Console:
-            <fieldset>
-                <!-- <legend>Gaming Console</legend> -->
-                <p>
-                    <label>List of consoles</label>
-                    <select id="consoleList">
-                        <option value="1">Xbox One</option>
-                        <option value="2">Nintendo Switch</option>
-                        <option value="3">Playstation 4</option>
-                    </select>
-                </p>
-            </fieldset>
+            Description: <input type="text" name="description" placeholder="Enter Description" required> <br>
+            
+            Console: <select id="addConsole"></select>
+            Add Console: <input type="text" id="addText" />
+            Add Console Value: <input type="text" id="addValue" />
+            <input type="button" id="addBtn" value="Add Console" onclick="Add()" />
+             
+             
+
             <form action="/admin">
-                <input type="file" id="myFile" name="filename">
+                <input type="file" id="myFile" name="filename"> <br>
                 <!-- <input type="submit"> -->
                 <input type="submit" value="Add Game">
               </form>
@@ -73,17 +70,27 @@
             <hr>
         </form>
         <!-- END: FORM -->
-
+        
         <% if (games.length) { %>
         <% games.forEach((game) => { %>
-        <a href="/admin/<%= game._id %>">
-            <h2><%= game.title %></h4>
-        </a>
+            <div class="wrapper">
+                <div class="card"><img src="https://cidco-smartcity.niua.org/wp-content/uploads/2017/08/No-image-found.jpg">  
+                    <div class="info">  
+                        <h1><%= game.title %></h1>
+                        <h4><%= game.genre %></h4>
+                        <p><%= game.description %></p>
+                        <p><%= game.date %></p>
+                        <a href="/admin/<%= game._id %>">
+                            <button>View Info</button>
+                        </a>
+                    </div> 
+                </div>    
+            </div>
         <% }) %>
         <% } else { %>
         <h4>No Games Found</h4>
         <% } %>
-
+        
     </main>
 </body>
 
