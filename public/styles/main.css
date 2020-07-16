@@ -17,5 +17,11 @@ h1 {
     /* position: fixed; */
     /* justify-content: space-evenly; */
     margin: 0 auto;
-    width: 90%;
+    display: -webkit-box;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    padding: 0;
+    margin: 0;
+    align-content: center;
 }
