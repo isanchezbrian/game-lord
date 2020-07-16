@@ -31,7 +31,7 @@
                 <li><a class="menuitems" href="/">HOME</a></li>
                 <li><a class="menuitems" href="/admin">ADMIN</a></li>
                 <li><a class="menuitems" href="/library">LIBRARY</a></li>
-                <li><a class="menuitems" href="#">CONTACT US</a></li>
+                <li><a class="menuitems" href="/admin/new">NEW</a></li>
             </ul>
         </div>
 
@@ -49,11 +49,12 @@
             Genre: <input type="text" name="genre" placeholder="Enter Genre" required>
             Date: <input type="text" name="date" placeholder="Enter Date" required>
             Description: <input type="text" name="description" placeholder="Enter Description" required> <br>
-            
-            Console: <select id="addConsole"></select>
+
+
+            <!-- Console: <select id="addConsole"></select>
             Add Console: <input type="text" id="addText" />
-            Add Console Value: <input type="text" id="addValue" />
-            <input type="button" id="addBtn" value="Add Console" onclick="Add()" />
+            <input type="hidden" id="addValue" />
+            <input type="button" id="addBtn" value="Add Console" onclick="Add" /> -->
              
              
 
@@ -62,11 +63,7 @@
                 <!-- <input type="submit"> -->
                 <input type="submit" value="Add Game">
               </form>
-            
-            <!-- Console: <input type="text" name="console" placeholder="Console"> -->
-            <!-- <select name="console" id="consoleId"> -->
-            <!-- <option value="< console.name %>">< console.name %></option> -->
-            <!-- </select> -->
+
             <hr>
         </form>
         <!-- END: FORM -->
@@ -79,6 +76,7 @@
                         <h1><%= game.title %></h1>
                         <h4><%= game.genre %></h4>
                         <p><%= game.description %></p>
+                        <p><%= console.name %></p>
                         <p><%= game.date %></p>
                         <a href="/admin/<%= game._id %>">
                             <button>View Info</button>

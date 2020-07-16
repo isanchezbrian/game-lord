@@ -23,6 +23,6 @@ function Add() {
   let addConsole = document.getElementById('addConsole');
   let option = document.createElement('OPTION');
   option.innerHTML = document.getElementById('addText').value;
-  option.value = document.getElementById('addValue').value;
+  // option.value = document.getElementById('addValue').value;
   addConsole.options.add(option);
 }

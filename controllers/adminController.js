@@ -17,68 +17,50 @@ router.get('/', (req, res) => {
   });
 });
 
-router.get('/', (req,res) => {
-  db.Console.find({}, (err, allConsoles) => {
-    if (err) return console.log(err);
-    console.log('All Consoles = ', allConsoles);
-    res.render('admin/index', {
-      console: allConsoles,
-    });
-  });
-});
+
 
 // New Game
 router.get('/new', (req, res) => {
-    res.render('admin/new');
+  res.render('admin/new');
 })
 
 // Admin Show
 router.get('/:id', (req, res) => {
   // Query the database for the games by ID
   db.Game.findById(req.params.id)
-    .populate({path: 'library'})
+    .populate({ path: 'library' })
     .exec((err, foundGame) => {
       if (err) return console.log(err);
       res.render('admin/show', {
         game: foundGame,
       });
-  })
+    })
 });
 
-router.get('/:id', (req, res) => {
-  db.Console.findById(req.params.id)
-  .populate({path: 'library'})
-  .exec((err, foundConsole) => {
-    if(err) return console.log(err);
-    res.render('admin/show', {
-      console: foundConsole,
-    })
-  })
-})
+
 
 // Create Game
 router.post('/', (req, res) => {
-    console.log('Request body = ', req.body);
-    db.Game.create(req.body, (err, newGame) => {
-        if(err) return console.log(err);
-        console.log('New Game = ', newGame);
-        res.redirect('/admin');
-    })
-})
-
-router.post('/', (req, res) => {
   console.log('Request body = ', req.body);
-  db.Console.create(req.body, (err, newConsole) => {
-    if(err) return console.log(err);
-    console.log('New Console = ', newConsole);
-    res.render('/admin');
+  db.Game.create(req.body, (err, newGame) => {
+    if (err) return console.log(err);
+    console.log('New Game = ', newGame);
+    db.Console.findById(req.body.consoleId, (err, foundConsole) => {
+      foundConsole.game.push(newConsole);
+      foundConsole.save((err, savedConsole) => {
+        console.log('savedConsole: ', savedConsole);
+        res.render('/admin');
+      })
+    })
   })
 })
+
+
 
 // Game Edit
 router.get('/:id/edit', (req, res) => {
   db.Game.findById(req.params.id, (err, foundGame) => {
-    if(err) return console.log(err);
+    if (err) return console.log(err);
 
     res.render('admin/edit', {
       game: foundGame,
@@ -86,15 +68,7 @@ router.get('/:id/edit', (req, res) => {
   });
 });
 
-router.get('/:id/edit', (req, res) => {
-  db.Console.findById(req.params.id, (err, foundConsole) => {
-    if(err) return console.log(err);
 
-    res.render('admin/edit', {
-      console: foundConsole,
-    });
-  });
-});
 
 // Game Update
 router.put('/:id', (req, res) => {
@@ -104,30 +78,16 @@ router.put('/:id', (req, res) => {
   db.Game.findByIdAndUpdate(
     req.params.id,
     req.body,
-    {new: true},
+    { new: true },
     (err, updatedGame) => {
-      if(err) return console.log(err);
+      if (err) return console.log(err);
 
       res.redirect('/admin');
     }
   );
 });
 
-router.put('/:id', (req, res) => {
-  // Log data from client
-  console.log('Updated Console = ', req.body);
 
-  db.Console.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    {new: true},
-    (err, updatedConsole) => {
-      if(err) return console.log(err);
-
-      res.redirect('/admin');
-    }
-  );
-});
 
 
 // Game Destroy/Delete
@@ -135,29 +95,12 @@ router.delete('/:id', (req, res) => {
   console.log('Deleting Game ID = ', req.params.id);
 
   db.Game.findByIdAndDelete(req.params.id, (err, deletedGame) => {
-    if(err) return console.log(err);
+    if (err) return console.log(err);
     // Log the deleted game
     console.log('The deleted game = ', deletedGame);
     db.Game.deleteMany({
       _id: {
         $in: deletedGame.admin
-      }
-    }, (err, data) => {
-      res.redirect('/admin');
-    })
-  });
-});
-
-router.delete('/:id', (req, res) => {
-  console.log('Deleting Console ID = ', req.params.id);
-
-  db.Console.findByIdAndDelete(req.params.id, (err, deletedConsole) => {
-    if(err) return console.log(err);
-    // Log the deleted console
-    console.log('The deleted console = ', deletedConsole);
-    db.Console.deleteMany({
-      _id: {
-        $in: deletedConsole.admin
       }
     }, (err, data) => {
       res.redirect('/admin');
