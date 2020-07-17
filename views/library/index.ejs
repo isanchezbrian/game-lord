@@ -32,8 +32,7 @@
             <ul class="menulist">
                 <li><a class="menuitems" href="/">HOME</a></li>
                 <li><a class="menuitems" href="/admin">ADMIN</a></li>
-                <li><a class="menuitems" href="/library">LIBRARY</a></li>
-                <li><a class="menuitems" href="#">CONTACT US</a></li>
+                <!-- <li><a class="menuitems" href="/library">LIBRARY</a></li> -->
             </ul>
         </div>
 
@@ -44,7 +43,7 @@
 
         </div>
 
-        <% if (games.length) { %>
+        <% if (typeof games !=='undefined' && games.length) { %>
             <% games.forEach((game) => { %>
                 <div class="wrapper">
                     <div class="card"><img src="https://cidco-smartcity.niua.org/wp-content/uploads/2017/08/No-image-found.jpg" alt="imgErr">  
@@ -52,6 +51,7 @@
                             <h2><%= game.title %></h2>
                             <h4><%= game.genre %></h4>
                             <p><%= game.description %></p>
+                            <p><%= game.console[0].name %></p>
                             <p><%= game.date %></p>
                             <a href="/admin/<%= game._id %>">
                                 <button>View Info</button>
