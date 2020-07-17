@@ -1,0 +1,69 @@
+body {
+    font-family: Helvetica, san-serif;
+    background: -webkit-linear-gradient(90deg, #00aaee 10%, #DD2476 90%); /* Chrome 10+, Saf5.1+ */
+    background:    -moz-linear-gradient(90deg, #00aaee 10%, #DD2476 90%); /* FF3.6+ */
+    background:     -ms-linear-gradient(90deg, #00aaee 10%, #DD2476 90%); /* IE10 */
+    background:      -o-linear-gradient(90deg, #00aaee 10%, #DD2476 90%); /* Opera 11.10+ */
+    background:         linear-gradient(90deg, #00aaee 10%, #DD2476 90%); /* W3C */
+}
+
+
+h1 {
+    text-align: center;
+    padding-top: 50px;
+}
+
+.how-it-works-pics{
+    /* position: fixed; */
+    /* justify-content: space-evenly; */
+    margin: 0 auto;
+    display: -webkit-box;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    padding: 0;
+    margin: 0;
+    align-content: center;
+    text-align: center;
+}
+
+.form {
+    display: block;
+    text-align: center;
+}
+
+label {
+    color: black;
+    font-size: 16px;
+    /* font-size: larger; */
+}
+
+input[type=text] {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid coral;
+    border-radius: 4px;
+    background-color: rgb(255, 255, 255);
+  }
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(82, 82, 82);
+    opacity: 1; /* Firefox */
+  }
+  
+input[type="submit"] {
+    width: 10%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid black;
+    background-color: #66daaf;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    border-radius: 5px;
+    -webkit-transition: 0.4s ease;
+    transition: 0.4s ease;
+    font-weight: bold;
+  }

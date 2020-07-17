@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/burger.css">
+    <script defer src="js/burger.js"></script> 
+    <script defer src="js/admin.js"></script> 
+    <title>Game Lord</title>
+</head>
+
+<body>
+    <main>
+    <!-- START: HAMBURGER MENU DROP DOWN -->
+    <div class="container">
+        <h1>Edit Game Information</h1>
+        <div id="topNav" class="navigation">
+          <span id="closebtn" onclick="navToggle()">
+            <span class="line1"></span>
+            <span class="line2"></span>
+            <span class="line3"></span>
+  
+          </span>
+          <div class="logo">
+            <!-- <h1 id="title">Game Lord</h1> -->
+            <img src="" />
+  
+          </div>
+  
+          <div class="websiteName">
+  
+            <ul class="menulist">
+              <li><a class="menuitems" href="/">HOME</a></li>
+              <li><a class="menuitems" href="/admin">ADMIN</a></li>
+              <!-- <li><a class="menuitems" href="/library">LIBRARY</a></li> -->
+            </ul>
+          </div>
+  
+  
+          <div id="main">
+          </div>
+        </div>
+        <!-- END: HAMBURGER MENU DROP DOWN -->
+      <div class="form">
+        <form action="/admin/<%= game._id %>?_method=PUT" method="POST">
+              <div class="title-form">
+                  <label for="title">Title:</label><br>
+                  <input type="text" name="title" placeholder="ex: Call of Duty" required>
+              </div>
+              <div class="genre-form">
+                  <label for="genre">Genre:</label><br>
+                  <input type="text" name="genre" placeholder="ex: First Person Shooter" required>
+              </div>
+              <div class="date-form">
+                  <label for="date">Date:</label><br>
+                  <input type="text" name="date" placeholder="ex: 1/1/2020" required>
+              </div>
+              <div class="description-form">
+                  <label for="description">Description:</label><br>
+                  <input type="text" name="description" placeholder="ex: The most awesome game ever!" required>
+              </div>
+            
+            <button type="submit">Edit Game</button>
+        </form>
+      </div> 
+      </main>
+      
+</body>
+</html>
+
