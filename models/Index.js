@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const connectionString = 'mongodb://localhost:27017/game-lord';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/game-lord';
 
-mongoose.connect(connectionString, {
+mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
