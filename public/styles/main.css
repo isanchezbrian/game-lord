@@ -26,3 +26,44 @@ h1 {
     align-content: center;
     text-align: center;
 }
+
+.form {
+    display: block;
+    text-align: center;
+}
+
+label {
+    color: black;
+    font-size: 16px;
+    /* font-size: larger; */
+}
+
+input[type=text] {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid coral;
+    border-radius: 4px;
+    background-color: rgb(255, 255, 255);
+  }
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(82, 82, 82);
+    opacity: 1; /* Firefox */
+  }
+  
+input[type="submit"] {
+    width: 10%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid black;
+    background-color: #66daaf;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    border-radius: 5px;
+    -webkit-transition: 0.4s ease;
+    transition: 0.4s ease;
+    font-weight: bold;
+  }

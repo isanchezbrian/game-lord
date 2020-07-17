@@ -43,19 +43,37 @@
         <hr>
 
         <!-- START: FORM -->
-        <form action="/admin" method="POST">
-            Title: <input type="text" name="title" placeholder="Enter Title" required>
-            Genre: <input type="text" name="genre" placeholder="Enter Genre" required>
-            Date: <input type="text" name="date" placeholder="Enter Date" required>
-            Description: <input type="text" name="description" placeholder="Enter Description" required> <br>
-            Console: <select id="addConsole" name="console">
-                <!-- Add Consoles From DataBase -->
-                <% consoles.forEach((console) => { %>
-                    <option value="<%= console._id %>"><%= console.name %></option>
-                <% }) %>
-            </select>
-            <input type="submit" value="Add Game">
-        </form>
+        <div class="form">
+            <form action="/admin" method="POST">
+                <div class="title-form">
+                    <label for="title">Title:</label><br>
+                    <input type="text" name="title" placeholder="ex: Call of Duty" required>
+                </div>
+                <div class="genre-form">
+                    <label for="genre">Genre:</label><br>
+                    <input type="text" name="genre" placeholder="ex: First Person Shooter" required>
+                </div>
+                <div class="date-form">
+                    <label for="date">Date:</label><br>
+                    <input type="text" name="date" placeholder="ex: 1/1/2020" required>
+                </div>
+                <div class="description-form">
+                    <label for="description">Description:</label><br>
+                    <input type="text" name="description" placeholder="ex: The most awesome game ever!" required>
+                </div>
+                <br>
+                <div class="console-form">
+                    Console:
+                    <select id="addConsole" name="console">
+                        <!-- Add Consoles From DataBase -->
+                        <% consoles.forEach((console) => { %>
+                        <option value="<%= console._id %>"><%= console.name %></option>
+                        <% }) %>
+                    </select>
+                </div>
+                <input type="submit" value="Add Game">
+            </form>
+        </div>
     
              
              
