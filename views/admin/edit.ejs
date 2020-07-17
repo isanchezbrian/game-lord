@@ -44,16 +44,30 @@
           </div>
         </div>
         <!-- END: HAMBURGER MENU DROP DOWN -->
-
+      <div class="form">
         <form action="/admin/<%= game._id %>?_method=PUT" method="POST">
-            Title: <input type="text" name="title" id="gameId" value="<%= game.title %>" placeholder="Enter Title" >
-            Genre: <input type="text" name="genre" id="gameId" value="<%= game.genre %>" placeholder="Enter Genre" >
-            Date: <input type="text" name="date" id="gameId" value="<%= game.date %>"placeholder="Enter Date" >
-            Description: <input type="text" name="description" id="gameId" value="<%= game.description %>"placeholder="Enter Description" >
+              <div class="title-form">
+                  <label for="title">Title:</label><br>
+                  <input type="text" name="title" placeholder="ex: Call of Duty" required>
+              </div>
+              <div class="genre-form">
+                  <label for="genre">Genre:</label><br>
+                  <input type="text" name="genre" placeholder="ex: First Person Shooter" required>
+              </div>
+              <div class="date-form">
+                  <label for="date">Date:</label><br>
+                  <input type="text" name="date" placeholder="ex: 1/1/2020" required>
+              </div>
+              <div class="description-form">
+                  <label for="description">Description:</label><br>
+                  <input type="text" name="description" placeholder="ex: The most awesome game ever!" required>
+              </div>
             
             <button type="submit">Edit Game</button>
         </form>
+      </div> 
       </main>
-
+      
 </body>
 </html>
+
