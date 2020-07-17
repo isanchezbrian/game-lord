@@ -65,7 +65,7 @@ router.post('/', (req, res) => {
       foundConsole.game.push(newGame);
       foundConsole.save((err, savedConsole) => {
         console.log('savedConsole: ', savedConsole);
-        res.redirect('/admin/new');
+        res.redirect('/admin');
       })
     })
   })

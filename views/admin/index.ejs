@@ -30,8 +30,7 @@
             <ul class="menulist">
                 <li><a class="menuitems" href="/">HOME</a></li>
                 <li><a class="menuitems" href="/admin">ADMIN</a></li>
-                <li><a class="menuitems" href="/library">LIBRARY</a></li>
-                <li><a class="menuitems" href="/admin/new">NEW CONSOLE</a></li>
+                <!-- <li><a class="menuitems" href="/library">LIBRARY</a></li> -->
             </ul>
         </div>
 
@@ -40,7 +39,7 @@
 
         <!-- <div class="websiteName"> -->
         <h1>Admin Page</h1>
-        <p>Please fill the Game information you would like to add to rent.</p>
+        <p>Please fill out the Game information you would like to add to rent.</p>
         <hr>
 
         <!-- START: FORM -->
@@ -79,7 +78,7 @@
                         <h1><%= game.title %></h1>
                         <h4><%= game.genre %></h4>
                         <p><%= game.description %></p>
-                        <p><%=  %></p>
+                        <p><%= game.console[0].name %></p>
                         <p><%= game.date %></p>
                         <a href="/admin/<%= game._id %>">
                             <button>View Info</button>
