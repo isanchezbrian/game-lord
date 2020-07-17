@@ -73,7 +73,6 @@
             <!-- <form action="/admin">
                 <input type="file" id="myFile" name="filename"> <br> -->
                 <!-- <input type="submit"> -->
-<<<<<<< HEAD
                 <input type="submit" value="Add Game">
             </form>
 
@@ -81,15 +80,9 @@
             <!-- <select name="console" id="consoleId"> -->
             <!-- <option value="< console.name %>">< console.name %></option> -->
             <!-- </select> -->
-=======
-                
-              <!-- </form>
-
->>>>>>> fbce37e5f35b3f2db436f9f4c01bae46d1869f85
             <hr>
         </form> -->
         <!-- END: FORM -->
-<<<<<<< HEAD
 
 
 
@@ -106,24 +99,6 @@
                         <button>View Info</button>
                     </a>
                 </div>
-=======
-        
-        <% if (typeof games !=='undefined' && games.length) { %>
-        <% games.forEach((game) => { %>
-            <div class="wrapper">
-                <div class="card"><img src="https://cidco-smartcity.niua.org/wp-content/uploads/2017/08/No-image-found.jpg">  
-                    <div class="info">  
-                        <h1><%= game.title %></h1>
-                        <h4><%= game.genre %></h4>
-                        <p><%= game.description %></p>
-                        <p><%= game.console[0].name %></p>
-                        <p><%= game.date %></p>
-                        <a href="/admin/<%= game._id %>">
-                            <button>View Info</button>
-                        </a>
-                    </div> 
-                </div>    
->>>>>>> fbce37e5f35b3f2db436f9f4c01bae46d1869f85
             </div>
         </div>
         <% }) %>
