@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/burger.css">
-    <link rel="stylesheet" href="styles/gameCard.css">
     <script defer src="js/burger.js"></script>
     <script defer src="js/admin.js"></script>
     <title>Game Lord</title>
@@ -46,19 +45,9 @@
 
         <% if (games.length) { %>
             <% games.forEach((game) => { %>
-                <div class="wrapper">
-                    <div class="card"><img src="https://cidco-smartcity.niua.org/wp-content/uploads/2017/08/No-image-found.jpg" alt="imgErr">  
-                        <div class="info">  
-                            <h2><%= game.title %></h2>
-                            <h4><%= game.genre %></h4>
-                            <p><%= game.description %></p>
-                            <p><%= game.date %></p>
-                            <a href="/admin/<%= game._id %>">
-                                <button>View Info</button>
-                            </a>
-                        </div> 
-                    </div>    
-                </div>
+            <a href="/admin/<%= game._id %>">
+                <h4><%= game.title %></h4>
+            </a>
             <% }) %>
             <% } else { %>
             <h4>No Games Found</h4>
