@@ -30,8 +30,7 @@
             <ul class="menulist">
                 <li><a class="menuitems" href="/">HOME</a></li>
                 <li><a class="menuitems" href="/admin">ADMIN</a></li>
-                <li><a class="menuitems" href="/library">LIBRARY</a></li>
-                <li><a class="menuitems" href="#">CONTACT US</a></li>
+                <!-- <li><a class="menuitems" href="/library">LIBRARY</a></li> -->
             </ul>
         </div>
 
@@ -40,7 +39,7 @@
 
         <!-- <div class="websiteName"> -->
         <h1>Admin Page</h1>
-        <p>Please fill the Game information you would like to add to rent.</p>
+        <p>Please fill out the Game information you would like to add to rent.</p>
         <hr>
 
         <!-- START: FORM -->
@@ -49,6 +48,7 @@
             Genre: <input type="text" name="genre" placeholder="Enter Genre" required>
             Date: <input type="text" name="genre" placeholder="Enter Genre" required>
             Description: <input type="text" name="description" placeholder="Enter Description" required> <br>
+<<<<<<< HEAD
 
             Console: <select id="addConsole"></select>
             Add Console: <input type="text" id="addText" />
@@ -56,10 +56,24 @@
             <input type="button" id="addBtn" value="Add Console" onclick="Add()" />
 
 
+=======
+            Console: <select id="addConsole" name="console">
+                <!-- Add Consoles From DataBase -->
+                <% consoles.forEach((console) => { %>
+                    <option value="<%= console._id %>"><%= console.name %></option>
+                <% }) %>
+            </select>
+            <input type="submit" value="Add Game">
+        </form>
+    
+             
+             
+>>>>>>> fbce37e5f35b3f2db436f9f4c01bae46d1869f85
 
-            <form action="/admin">
-                <input type="file" id="myFile" name="filename"> <br>
+            <!-- <form action="/admin">
+                <input type="file" id="myFile" name="filename"> <br> -->
                 <!-- <input type="submit"> -->
+<<<<<<< HEAD
                 <input type="submit" value="Add Game">
             </form>
 
@@ -67,9 +81,15 @@
             <!-- <select name="console" id="consoleId"> -->
             <!-- <option value="< console.name %>">< console.name %></option> -->
             <!-- </select> -->
+=======
+                
+              <!-- </form>
+
+>>>>>>> fbce37e5f35b3f2db436f9f4c01bae46d1869f85
             <hr>
-        </form>
+        </form> -->
         <!-- END: FORM -->
+<<<<<<< HEAD
 
 
 
@@ -86,6 +106,24 @@
                         <button>View Info</button>
                     </a>
                 </div>
+=======
+        
+        <% if (typeof games !=='undefined' && games.length) { %>
+        <% games.forEach((game) => { %>
+            <div class="wrapper">
+                <div class="card"><img src="https://cidco-smartcity.niua.org/wp-content/uploads/2017/08/No-image-found.jpg">  
+                    <div class="info">  
+                        <h1><%= game.title %></h1>
+                        <h4><%= game.genre %></h4>
+                        <p><%= game.description %></p>
+                        <p><%= game.console[0].name %></p>
+                        <p><%= game.date %></p>
+                        <a href="/admin/<%= game._id %>">
+                            <button>View Info</button>
+                        </a>
+                    </div> 
+                </div>    
+>>>>>>> fbce37e5f35b3f2db436f9f4c01bae46d1869f85
             </div>
         </div>
         <% }) %>

@@ -31,7 +31,6 @@
                   <li><a class="menuitems" href="/">HOME</a></li>
                   <li><a class="menuitems" href="/admin">ADMIN</a></li>
                   <li><a class="menuitems" href="/library">LIBRARY</a></li>
-                  <li><a class="menuitems" href="#">CONTACT US</a></li>
               </ul>
         </div>
 
@@ -44,6 +43,7 @@
           <hr>
 
         </div>
+
         <form action="/admin" method="POST">
             <div>
             <label for="game">Games</label>
@@ -54,6 +54,18 @@
                 </select>
             </div>
         </form>
+
+        <form action="/admin" method="POST">
+            <div>
+            <label for="console">Consoles</label>
+                <select name="consoleId" id="console">
+                <% consoles.forEach(console => { %>
+                    <option value="<%= console._id %>"><%= console.name %></option>
+                <% }) %>
+                </select>
+            </div>
+        </form>
+
     </main>
 </body>
 </html>
