@@ -5,10 +5,6 @@ const ConsoleSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    date: {
-        type: Date,
-        required: true,
-    },
     game: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Game',

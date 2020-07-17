@@ -10,10 +10,14 @@ router.get('/', (req, res) => {
     if (err) return console.log(err);
     // Log all games
     console.log('All Games = ', allGames);
+    db.Console.find({}, (err, foundConsoles) => {
+      if(err) return console.log(err);
+      res.render('admin/index', {
+        games: allGames,
+        consoles: foundConsoles
+      });
+    })
     // Render the index template with all games
-    res.render('admin/index', {
-      games: allGames,
-    });
   });
 });
 
@@ -21,16 +25,27 @@ router.get('/', (req, res) => {
 
 // New Game
 router.get('/new', (req, res) => {
-  res.render('admin/new');
+  db.Console.find({}, (err, foundConsole) => {
+    if (err) return console.log(err);
+    console.log(foundConsole);
+    db.Game.find({}, (err, foundGame) => {
+      if (err) return console.log(err);
+      res.render('admin/new', {
+        games: foundGame,
+        consoles: foundConsole
+      });
+    })
+  })
 })
 
 // Admin Show
 router.get('/:id', (req, res) => {
   // Query the database for the games by ID
   db.Game.findById(req.params.id)
-    .populate({ path: 'library' })
+    .populate({ path: 'console' })
     .exec((err, foundGame) => {
       if (err) return console.log(err);
+      console.log(foundGame);
       res.render('admin/show', {
         game: foundGame,
       });
@@ -45,11 +60,12 @@ router.post('/', (req, res) => {
   db.Game.create(req.body, (err, newGame) => {
     if (err) return console.log(err);
     console.log('New Game = ', newGame);
-    db.Console.findById(req.body.consoleId, (err, foundConsole) => {
-      foundConsole.game.push(newConsole);
+    db.Console.findById(req.body.console, (err, foundConsole) => {
+      console.log(foundConsole);
+      foundConsole.game.push(newGame);
       foundConsole.save((err, savedConsole) => {
         console.log('savedConsole: ', savedConsole);
-        res.render('/admin');
+        res.redirect('/admin/new');
       })
     })
   })

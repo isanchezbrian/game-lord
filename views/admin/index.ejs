@@ -31,7 +31,7 @@
                 <li><a class="menuitems" href="/">HOME</a></li>
                 <li><a class="menuitems" href="/admin">ADMIN</a></li>
                 <li><a class="menuitems" href="/library">LIBRARY</a></li>
-                <li><a class="menuitems" href="/admin/new">NEW</a></li>
+                <li><a class="menuitems" href="/admin/new">NEW CONSOLE</a></li>
             </ul>
         </div>
 
@@ -49,26 +49,29 @@
             Genre: <input type="text" name="genre" placeholder="Enter Genre" required>
             Date: <input type="text" name="date" placeholder="Enter Date" required>
             Description: <input type="text" name="description" placeholder="Enter Description" required> <br>
-
-
-            <!-- Console: <select id="addConsole"></select>
-            Add Console: <input type="text" id="addText" />
-            <input type="hidden" id="addValue" />
-            <input type="button" id="addBtn" value="Add Console" onclick="Add" /> -->
+            Console: <select id="addConsole" name="console">
+                <!-- Add Consoles From DataBase -->
+                <% consoles.forEach((console) => { %>
+                    <option value="<%= console._id %>"><%= console.name %></option>
+                <% }) %>
+            </select>
+            <input type="submit" value="Add Game">
+        </form>
+    
              
              
 
-            <form action="/admin">
-                <input type="file" id="myFile" name="filename"> <br>
+            <!-- <form action="/admin">
+                <input type="file" id="myFile" name="filename"> <br> -->
                 <!-- <input type="submit"> -->
-                <input type="submit" value="Add Game">
-              </form>
+                
+              <!-- </form>
 
             <hr>
-        </form>
+        </form> -->
         <!-- END: FORM -->
         
-        <% if (games.length) { %>
+        <% if (typeof games !=='undefined' && games.length) { %>
         <% games.forEach((game) => { %>
             <div class="wrapper">
                 <div class="card"><img src="https://cidco-smartcity.niua.org/wp-content/uploads/2017/08/No-image-found.jpg">  
@@ -76,7 +79,7 @@
                         <h1><%= game.title %></h1>
                         <h4><%= game.genre %></h4>
                         <p><%= game.description %></p>
-                        <p><%= console.name %></p>
+                        <p><%=  %></p>
                         <p><%= game.date %></p>
                         <a href="/admin/<%= game._id %>">
                             <button>View Info</button>

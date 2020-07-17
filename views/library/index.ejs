@@ -43,7 +43,7 @@
 
         </div>
 
-        <% if (games.length) { %>
+        <% if (typeof games !=='undefined' && games.length) { %>
             <% games.forEach((game) => { %>
                 <div class="wrapper">
                     <div class="card"><img src="https://cidco-smartcity.niua.org/wp-content/uploads/2017/08/No-image-found.jpg" alt="imgErr">  

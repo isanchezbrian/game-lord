@@ -43,26 +43,29 @@
           <hr>
 
         </div>
+
         <form action="/admin" method="POST">
             <div>
             <label for="game">Games</label>
                 <select name="gameId" id="game">
-                <% game.forEach(game => { %>
+                <% games.forEach(game => { %>
                     <option value="<%= game._id %>"><%= game.title %></option>
                 <% }) %>
                 </select>
             </div>
         </form>
+
         <form action="/admin" method="POST">
             <div>
             <label for="console">Consoles</label>
                 <select name="consoleId" id="console">
-                    <% console.forEach(console => { %>
-                        <option value="<%= console._id %>"><%= console.name %></option>
-                    <% }) %>
+                <% consoles.forEach(console => { %>
+                    <option value="<%= console._id %>"><%= console.name %></option>
+                <% }) %>
                 </select>
             </div>
         </form>
+
     </main>
 </body>
 </html>
