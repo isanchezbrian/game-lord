@@ -57,7 +57,7 @@ Any Game Lord user with an admin account can rent or list games to rent out to o
 <h3>Shopping Cart</h3>
 <ul>
     <li>Game</li>
-    <li>gmaes.id</li>
+    <li>games.id</li>
 </ul>
 
 <h3>Consoles</h3>
